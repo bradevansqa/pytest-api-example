@@ -36,6 +36,9 @@ def test_patch_order_by_id():
     body = response.json()
     assert "Order and pet status updated successfully" in body["message"]
 
+    reset_payload = {"status": "available"}
+    reset_response = api_helpers.patch_api_data(patch_endpoint, reset_payload)
+
 
 
     
