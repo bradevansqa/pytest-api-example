@@ -13,4 +13,32 @@ TODO: Finish this test by...
 4) Validate the response message "Order and pet status updated successfully"
 '''
 def test_patch_order_by_id():
-    pass
+    create_endpoint = "/store/order"
+    create_payload = {
+        "pet_id": 2   
+    }
+
+    create_response = api_helpers.post_api_data(create_endpoint, create_payload)
+    assert create_response.status_code == 201
+
+    
+    order_id = create_response.json()["id"]
+
+    
+    patch_endpoint = f"/store/order/{order_id}"
+    patch_payload = {
+        "status": "sold"
+    }
+
+    response = api_helpers.patch_api_data(patch_endpoint, patch_payload)
+
+    assert response.status_code == 200
+    body = response.json()
+    assert "Order and pet status updated successfully" in body["message"]
+
+
+
+    
+
+
+    
