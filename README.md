@@ -1,3 +1,6 @@
+Pytest Report:
+https://bradevansqa.github.io/pytest-api-example/report.html
+
 # Sample API Test Using Pytest and SwaggerUI
 
 ## System Requirements
